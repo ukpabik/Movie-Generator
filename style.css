@@ -1,0 +1,22 @@
+.movie-container{
+  display:flex;
+  align-items: center;
+  border-radius: 1rem 1rem;
+  background-color: pink;
+  
+}
+.movie-grid{
+  display:grid;
+  margin-left: 2rem;
+
+}
+.movie-photo{
+  margin-right: 2rem;
+}
+.photo{
+  display:inline-block;
+  border-radius: 1rem 1rem;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0;
+}
