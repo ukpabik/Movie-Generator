@@ -28,6 +28,7 @@ function fetchData(num){
         const {original_title, overview, release_date, title, genres} = data;
         
         //Uses recursion to keep searching for movie that is available
+        const movieImage = `http://image.tmdb.org/t/p/w300${data.poster_path}`
         
         if (title !== undefined && data.adult === false){
           document.querySelector('.js-website-container').innerHTML = `
@@ -75,23 +76,23 @@ function getGenres(genreList){
 }
 
 
-function generateRandomColor()
-{
-  var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-  if(randomColor.length != 7) {
-    randomColor = generateRandomColor();
-  }
-  return randomColor;
-  // The random color will be freshly served
-}
+// function generateRandomColor()
+// {
+//   var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+//   if(randomColor.length != 7) {
+//     randomColor = generateRandomColor();
+//   }
+//   return randomColor;
+//   // The random color will be freshly served
+// }
 
-let titleElement = document.querySelector('.js-color-changer');
-let textElement = document.querySelector('.js-movie-header');
-let backgroundElement = document.querySelector('.js-movie-container');
+// let titleElement = document.querySelector('.js-color-changer');
+// let textElement = document.querySelector('.js-movie-header');
+// let backgroundElement = document.querySelector('.js-movie-container');
 
-window.setInterval(function(){
-  let randomColor = generateRandomColor();
-  titleElement.style.color = randomColor;
-}, 4000);
+// window.setInterval(function(){
+//   let randomColor = generateRandomColor();
+//   titleElement.style.color = randomColor;
+// }, 4000);
 
 
