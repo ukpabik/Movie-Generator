@@ -30,6 +30,7 @@ function displayTime(){
 }
 
 const apiKey = '7b7b640161fb2ad71f2562b48443b5a4';
+const generateButton = document.getElementById('generate-button');
 
 const options = {
   method: 'GET',
@@ -40,17 +41,13 @@ const options = {
 };
 
 
-fetchID();
-
-
-
 //Gets the latest movie's id to use for random id
 function fetchID(){
   fetch('https://api.themoviedb.org/3/movie/latest', options)
   .then(response => response.json())
   .then(data => {
     const list = data;
-    let number = data.id;
+    let number = getRandomInt(data.id);
     fetchData(number);
   })
   .catch(err => console.error(err));
@@ -153,3 +150,18 @@ function getGenres(genreList){
 setInterval(() => {
   displayTime();
 }, 1000);
+
+generateButton.addEventListener('click', () => {
+  fetchData(getRandomInt(1500000));
+});
+
+
+function loadMovieFromStorage(){
+  const savedMovie = localStorage.getItem('id');
+  if (savedMovie){
+    const movie = JSON.parse(savedMovie);
+    fetchData(parseInt(JSON.parse(savedMovie)));
+  }
+}
+
+loadMovieFromStorage();
