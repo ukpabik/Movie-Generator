@@ -1,3 +1,34 @@
+function displayTime(){
+  const date = new Date();
+  var hours = date.getHours();
+  var min = date.getMinutes();
+  var seconds = date.getSeconds();
+  let session = document.getElementById('session');
+
+  
+  if (hours >= 12){
+    session.innerHTML = 'PM';
+  }
+  else{
+    session.innerHTML = 'AM';
+  }
+  if (hours > 12){
+    hours = hours - 12;
+  }
+  if (min < 10) {
+    min = '0' + min;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+
+  document.getElementById('hours').innerHTML = hours;
+  document.getElementById('minutes').innerHTML = min;
+  document.getElementById('seconds').innerHTML = seconds;
+
+ 
+}
+
 const apiKey = '7b7b640161fb2ad71f2562b48443b5a4';
 
 const options = {
@@ -8,16 +39,22 @@ const options = {
   }
 };
 
+
+fetchID();
+
+
+
 //Gets the latest movie's id to use for random id
-fetch('https://api.themoviedb.org/3/movie/latest', options)
+function fetchID(){
+  fetch('https://api.themoviedb.org/3/movie/latest', options)
   .then(response => response.json())
   .then(data => {
     const list = data;
-    const num = getRandomInt(data.id);
-
-    fetchData(num);
+    let number = data.id;
+    fetchData(number);
   })
   .catch(err => console.error(err));
+}
 
 
 function fetchData(num){
@@ -30,7 +67,7 @@ function fetchData(num){
         //Uses recursion to keep searching for movie that is available
         const movieImage = `http://image.tmdb.org/t/p/w300${data.poster_path}`
         
-        if (title !== undefined && data.adult === false){
+        if (data.poster_path !== null && data.adult === false){
           document.querySelector('.js-website-container').innerHTML = `
           
           <div class = "photo-div">
@@ -58,22 +95,39 @@ function fetchData(num){
       })
       .catch(err => fetchData(getRandomInt(num)));
 }
+
+//Random int for getting id
 function getRandomInt(num){
   return Math.floor(Math.random() * num);
 }
 
+
+//Getting list of genres
 function getGenres(genreList){
   let list = [];
-  for (let i = 0; i < genreList.length; i++){
-    if (i < genreList.length-1){
-      list += genreList[i].name + ', ';
-    }
-    else{
-      list += genreList[i].name;
+  if (genreList.length > 0){
+    for (let i = 0; i < genreList.length; i++){
+      if (i < genreList.length-1){
+        list += genreList[i].name + ', ';
+      }
+      else{
+        list += genreList[i].name;
+      }
     }
   }
+  else{
+    list[0] = 'Not specified';
+  }
+  
   return list;
 }
+
+//TODO: Save movie generated into local storage and only update every day.
+//Add time counter, and DONE [add placeholder image for movies that dont have images]
+
+//Saving movie generated in local storage
+
+
 
 
 // function generateRandomColor()
@@ -96,3 +150,6 @@ function getGenres(genreList){
 // }, 4000);
 
 
+setInterval(() => {
+  displayTime();
+}, 1000);
