@@ -1,22 +1,77 @@
+body{
+  font-family: Arial;
+}
+
+
+.page-title{
+  font-size: 72px;
+  margin:0;
+  text-decoration: underline;
+  text-shadow: 4px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(to bottom left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: color 0.9s ease-out;
+}
+
+.title-div{
+  margin-top: 80px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.website-container{
+  display: flex;
+  justify-content:center;
+  margin-top: 8rem;
+  max-width: 100%;
+}
 .movie-container{
   display:flex;
-  align-items: center;
+  
   border-radius: 1rem 1rem;
   background-color: pink;
-  
+  min-width: 300px;
+  max-width: 40%;
+  height: 100%;
+}
+.movie-inside{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
 }
 .movie-grid{
+  
   display:grid;
-  margin-left: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 5px;
+  
 
 }
-.movie-photo{
-  margin-right: 2rem;
-}
 .photo{
-  display:inline-block;
   border-radius: 1rem 1rem;
-  max-height: 100%;
-  max-width: 100%;
+  min-width: 300px;
+  height: 100%;
+  width: 100%;
   margin: 0;
+}
+.photo-div{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.movie-overview, .movie-genres, .movie-subheader{
+  font-size: 1rem;
+}
+.movie-header{
+  font-size: 1.5rem;
+  color:black;
 }

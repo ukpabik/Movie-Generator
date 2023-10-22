@@ -28,16 +28,26 @@ function fetchData(num){
         const {original_title, overview, release_date, title, genres} = data;
         
         //Uses recursion to keep searching for movie that is available
+        
         if (title !== undefined && data.adult === false){
-          document.querySelector('.js-movie-container').innerHTML = `
+          document.querySelector('.js-website-container').innerHTML = `
           
-          <img class = "photo" src = "http://image.tmdb.org/t/p/w300${data.poster_path}">
+          <div class = "photo-div">
+          <div class = "photo-div"><img class = "photo" src = "http://image.tmdb.org/t/p/w300${data.poster_path}"></div>
+          <div class = "js-movie-container movie-container">
+          
           <div class = "movie-inside">
+          
             <div class = "movie-grid">
-              <h2 class = "movie-header">${title} <p class = "movie-genres">Genres: [${genres[0].name}]</p></h2>
-              <h3>Also known as: ${original_title}</h3>
+   
+              <div class = "photo-div"><h2 id = "bg" class = "js-movie-header movie-header">${title}</h2></div>
+              <div class = "photo-div"><p class = "movie-genres">Genres: [${getGenres(genres)}]</p></div>
+              <div class = "photo-div"><h3 class = "movie-subheader">Also known as: ${original_title}</h3></div>
+              
               <p class = "movie-overview">${overview}</p>
             </div>
+          </div>
+          </div>
           </div>
           `;
         }
@@ -50,4 +60,38 @@ function fetchData(num){
 function getRandomInt(num){
   return Math.floor(Math.random() * num);
 }
+
+function getGenres(genreList){
+  let list = [];
+  for (let i = 0; i < genreList.length; i++){
+    if (i < genreList.length-1){
+      list += genreList[i].name + ', ';
+    }
+    else{
+      list += genreList[i].name;
+    }
+  }
+  return list;
+}
+
+
+function generateRandomColor()
+{
+  var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+  if(randomColor.length != 7) {
+    randomColor = generateRandomColor();
+  }
+  return randomColor;
+  // The random color will be freshly served
+}
+
+let titleElement = document.querySelector('.js-color-changer');
+let textElement = document.querySelector('.js-movie-header');
+let backgroundElement = document.querySelector('.js-movie-container');
+
+window.setInterval(function(){
+  let randomColor = generateRandomColor();
+  titleElement.style.color = randomColor;
+}, 4000);
+
 
