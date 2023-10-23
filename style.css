@@ -31,10 +31,8 @@ body {
 }
 .button-div{
   display:flex;
-  position: absolute;
-  left: 49.5%;
-  bottom: 0;
-  transform: translate(-50%, -50%);
+  margin-top: 8rem;
+  justify-content:center;
 }
 .generate-button{
   border:1px black solid;
