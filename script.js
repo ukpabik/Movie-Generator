@@ -75,7 +75,7 @@ function fetchData(num){
           
             <div class = "movie-grid">
    
-              <div class = "photo-div"><h2 id = "bg" class = "js-movie-header movie-header">${title}</h2></div>
+              <div class = "photo-div"><h2 id = "bg" class = "js-movie-header movie-header"><a class = "movie-link" href = "https://www.themoviedb.org/movie/${num}">${title}</a></h2></div>
               <div class = "photo-div"><p class = "movie-genres">Genres: [${getGenres(genres)}]</p></div>
               <div class = "photo-div"><h3 class = "movie-subheader">Also known as: ${original_title}</h3></div>
               
@@ -119,10 +119,7 @@ function getGenres(genreList){
   return list;
 }
 
-//TODO: Save movie generated into local storage and only update every day.
-//Add time counter, and DONE [add placeholder image for movies that dont have images]
 
-//Saving movie generated in local storage
 
 
 

@@ -120,11 +120,30 @@ body {
   position:absolute;
   top: 5%;
   left: 50%;
-  transform: translate(-25%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 30px;
   text-shadow:0px -2px rgba(0, 0, 0, 0.4);
 }
 .copyright-icon{
-  height: 10%;
-  width: 10%;
+  position:absolute;
+  top: 8%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  height: 5%;
+  width: 5%;
+}
+.movie-link{
+  text-decoration:none;
+  color:rgba(0,0,0,0.5);
+}
+.movie-link:hover{
+  text-decoration:underline;
+}
+.movie-link:active{
+  color:rgba(0, 0, 0, 1);
+}
+.note{
+  position:absolute;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
