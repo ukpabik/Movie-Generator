@@ -119,10 +119,7 @@ function getGenres(genreList){
   return list;
 }
 
-//TODO: Save movie generated into local storage and only update every day.
-//Add time counter, and DONE [add placeholder image for movies that dont have images]
 
-//Saving movie generated in local storage
 
 
 
