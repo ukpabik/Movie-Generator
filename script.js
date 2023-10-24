@@ -62,7 +62,7 @@ function fetchData(num){
         const {original_title, overview, release_date, title, genres} = data;
         
         //Uses recursion to keep searching for movie that is available
-        const movieImage = `http://image.tmdb.org/t/p/w300${data.poster_path}`
+        const movieImage = `http://image.tmdb.org/t/p/w300${data.poster_path}`;
         
         if (data.poster_path !== null && data.adult === false){
           document.querySelector('.js-website-container').innerHTML = `
