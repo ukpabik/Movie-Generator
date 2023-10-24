@@ -74,10 +74,10 @@ function fetchData(num){
           <div class = "movie-inside">
           
             <div class = "movie-grid">
-   
-              <div class = "photo-div"><h2 id = "bg" class = "js-movie-header movie-header">${title}</h2></div>
-              <div class = "photo-div"><p class = "movie-genres">Genres: [${getGenres(genres)}]</p></div>
-              <div class = "photo-div"><h3 class = "movie-subheader">Also known as: ${original_title}</h3></div>
+              
+              <h2 id = "bg" class = "js-movie-header movie-header">${title}</h2>
+              <p class = "movie-genres">Genres: [${getGenres(genres)}]</p>
+              <h3 class = "movie-subheader">Also known as: ${original_title}</h3>
               
               <p class = "movie-overview">${overview}</p>
             </div>
