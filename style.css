@@ -31,8 +31,10 @@ body {
   -webkit-background-clip: text;
 }
 .button-div{
+  align-items:center;
   display:flex;
   margin-top: 8rem;
+  margin-left:1.2rem;
   justify-content:center;
 }
 .generate-button{
@@ -190,7 +192,7 @@ body {
     font-size: 0.8rem; 
   }
   .website-container{
-    margin-left: 0.5rem;
+    margin-left: 1.2rem;
   }
   .logo {
     width: 3rem;
